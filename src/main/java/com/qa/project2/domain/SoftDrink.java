@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class SoftDrinks {
+public class SoftDrink {
 	
 	@Id
 	@GeneratedValue
@@ -19,11 +19,11 @@ public class SoftDrinks {
 	@Column(nullable = false)
 	private Double sizeLitres;
 	
-	public SoftDrinks() {
+	public SoftDrink() {
 		super();
 	}
 
-	public SoftDrinks(Integer id, String brand, String flavour, Double sizeLitres) {
+	public SoftDrink(Integer id, String brand, String flavour, Double sizeLitres) {
 		super();
 		this.id = id;
 		this.brand = brand;
@@ -62,7 +62,11 @@ public class SoftDrinks {
 	public void setSizeLitres(Double sizeLitres) {
 		this.sizeLitres = sizeLitres;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "SoftDrink [id=" + id + ", brand=" + brand + ", flavour=" + flavour + ", sizeLitres=" + sizeLitres
+				+ "]";
+	}
 	
 }
