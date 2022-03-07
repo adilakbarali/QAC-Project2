@@ -36,8 +36,8 @@ public class SoftDrinkService implements ServiceInterface<SoftDrink>{
 	public SoftDrink replace(Integer id, SoftDrink s) {
 		SoftDrink existing = this.repo.findById(id).get();
 		existing.setBrand(s.getBrand());
-		existing.setFlavour(s.getFlavour());
-		existing.setSizeLitres(s.getSizeLitres());
+		existing.setName(s.getName());
+		existing.setDescription(s.getDescription());
 		SoftDrink updated = this.repo.save(existing);
 		return updated;
 	}

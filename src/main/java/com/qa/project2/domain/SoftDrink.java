@@ -3,32 +3,33 @@ package com.qa.project2.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class SoftDrink {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(nullable = false)
 	private String brand;
 	@Column(nullable = false)
-	private String flavour;
+	private String name;
 	@Column(nullable = false)
-	private Double sizeLitres;
+	private String description;
 	
 	public SoftDrink() {
 		super();
 	}
 
-	public SoftDrink(Integer id, String brand, String flavour, Double sizeLitres) {
+	public SoftDrink(Integer id, String brand, String name, String description) {
 		super();
 		this.id = id;
 		this.brand = brand;
-		this.flavour = flavour;
-		this.sizeLitres = sizeLitres;
+		this.name = name;
+		this.description = description;
 	}
 
 	public Integer getId() {
@@ -47,26 +48,26 @@ public class SoftDrink {
 		this.brand = brand;
 	}
 
-	public String getFlavour() {
-		return flavour;
+	public String getName() {
+		return name;
 	}
 
-	public void setFlavour(String flavour) {
-		this.flavour = flavour;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public Double getSizeLitres() {
-		return sizeLitres;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setSizeLitres(Double sizeLitres) {
-		this.sizeLitres = sizeLitres;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@Override
 	public String toString() {
-		return "SoftDrink [id=" + id + ", brand=" + brand + ", flavour=" + flavour + ", sizeLitres=" + sizeLitres
-				+ "]";
+		return "SoftDrink [id=" + id + ", brand=" + brand + ", name=" + name + ", description=" + description + "]";
 	}
-	
+
+
 }
