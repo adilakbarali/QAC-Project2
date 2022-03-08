@@ -13,34 +13,37 @@
     />
 </head>
 <body>
-
-
-    <table id="dataTable">
-        <tr>
-        <th>Brand</th>
-        <th>Name</th>
-        <th>Description</th>
-        </tr>
-        
-    </table>
-
-    <button type="button" onclick="showData()" class="btn btn-primary">
-        Get data
-      </button>
-      <button type="button" onclick="clearData()" class="btn btn-secondary">
-        Reset
-      </button>
-
-    <!-- <form>
-        <div class="dataDiv">
-          <div class="container">
-            <h2>Testing Fetch</h2>
-            <br />
-            <p id="dataPara">No data.</p>
-          </div>
-          <br />
-        </div>
-      </form> -->
+<center>
+  <div class ="container" id="container">
+    <div class="jumbotron">
+      <h1>Soft Drinks!</h1>
+      <p>Use this form to enter and retrieve elements from a database of various soft drinks.</p>
+    </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-info" onclick="hideAll();toggleShowSearchId()">Search by ID</button>
+    <button type="button" class="btn btn-info" onclick="hideAll();showData()">Get All Records</button>
+    <button type="button" class="btn btn-warning" onclick="hideAll();clearData()">Clear/Reset Table</button>
+  </div>
+  </div>
+    <div class = "form-group" id="searchIdContainer" style='display:none;'>
+      <label for inputId>ID:</label>
+      <input type="input" id="inputId" width="50px">
+      <button type="button" class="btn btn-info" onclick="hideAll();showDataById()">Submit</button>
+      <button type="button" class="btn btn-info" onclick="hideAll();">Cancel</button>
+    </div>
+    <div class = "form-group" id="updateContainer" style='display:none;'>
+      <label for inputId>ID:</label>
+      <input type="input" id="updateId" width="50px" readonly>
+      <label for inputId>Brand:</label>
+      <input type="input" id="updateBrand" width="100px">
+      <label for inputId>Name:</label>
+      <input type="input" id="updateName" width="100px">
+      <label for inputId>Description:</label>
+      <input type="input" id="updateDescription" width="175px">
+      <button type="button" class="btn btn-info" onclick="hideAll();updateDrink()">Submit</button>
+      <button type="button" class="btn btn-info" onclick="hideAll();">Cancel</button>
+    </div>
+</center>
       <script type="text/javascript" src="./script.js"></script>
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
