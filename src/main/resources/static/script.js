@@ -134,7 +134,11 @@ let deleteDataBtn = async (i) => {
 
 function deleteData(i){
   if (deleteDataBtn(i)){
-    refTable.deleteRow(i);
+    for(let j=0;j<refTable.rows.length;j++){
+      if (refTable.rows[j].cells[0].innerHTML == i){
+        refTable.deleteRow(j);    
+      }
+    }
   }
 }
 
