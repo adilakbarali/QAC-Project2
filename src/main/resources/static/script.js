@@ -2,6 +2,7 @@
 
 let refTable;
 let tableExists = false;
+let mode = 0;
 
 function clearData(){
     if(tableExists == true){
@@ -65,10 +66,12 @@ let showDataById = async () => {
 }
 
 function setupDrink() {
+  let i;
+
   const data = {
-    brand: document.getElementById("brand").value,
-    name: document.getElementById("name").value,
-    description: document.getElementById("description").value,
+    brand: document.getElementById("updateBrand").value,
+    name: document.getElementById("updateName").value,
+    description: document.getElementById("updateDescription").value,
   };
 
   fetch("/create", {
@@ -82,10 +85,13 @@ function setupDrink() {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
+      document.getElementById("inputId").value = data.id;
+      showDataById();
     })
     .catch((error) => {
       console.error("Error:", error);
     });
+    document.getElementById("inputId").value = "";
 }
 
 function updateDrink() {
@@ -111,6 +117,9 @@ function updateDrink() {
     .catch((error) => {
       console.error("Error:", error);
     });
+    document.getElementById("inputId").value = i;
+    showDataById();
+    document.getElementById("inputId").value = "";
 }
 
 let deleteDataBtn = async (i) => {
@@ -142,7 +151,7 @@ function showRecord(id, brand, name, description, index) {
   let refUpdateBtn = document.createElement("button");
   refUpdateBtn.className = "btn btn-warning";
   refUpdateBtn.innerHTML = "Update";
-  refUpdateBtn.onclick = function() { toggleShowUpdate(index) };
+  refUpdateBtn.onclick = function() { showUpdate(index) };
   refTd1.innerHTML = id;
   refTd2.innerHTML = brand;
   refTd3.innerHTML = name;
@@ -166,15 +175,39 @@ function toggleShowSearchId(){
   }
 }
 
-function toggleShowUpdate(i){
+function showUpdate(i){
   var element = document.getElementById("updateContainer");
   var uId = document.getElementById("updateId");
-  if(element.style.display === "none" || uId.value !== i){
-    element.style.display = "block";
-    uId.value = i;
-  } else {
-    element.style.display = "none";
-    uId.value = "";
+  var uIdLabel = document.getElementById("updateIdLabel");
+  element.style.display = "block";
+  uIdLabel.style.display = "block";
+  uId.style.display = "block";
+  uId.value = i;
+  mode = 2;
+  let updateInfo = refTable.rows[i].cells;
+  document.getElementById("updateBrand").value = updateInfo[1].innerHTML;
+  document.getElementById("updateName").value = updateInfo[2].innerHTML;
+  document.getElementById("updateDescription").value = updateInfo[3].innerHTML;
+}
+
+function showCreate(){
+  var element = document.getElementById("updateContainer");
+  var uId = document.getElementById("updateId");
+  var uIdLabel = document.getElementById("updateIdLabel");
+  uId.style.display = "none";
+  uIdLabel.style.display = "none";
+  mode = 1;
+  element.style.display = "block";
+  document.getElementById("updateBrand").value = "";
+  document.getElementById("updateName").value = "";
+  document.getElementById("updateDescription").value = "";
+}
+
+function modeInitiate(){
+  if(mode == 1){
+    setupDrink();
+  } else if(mode == 2){
+    updateDrink();
   }
 }
 

@@ -20,6 +20,7 @@
       <p>Use this form to enter and retrieve elements from a database of various soft drinks.</p>
     </div>
   <div class="btn-group">
+    <button type="button" class="btn btn-info" onclick="hideAll();showCreate()">Create an Entry</button>
     <button type="button" class="btn btn-info" onclick="hideAll();toggleShowSearchId()">Search by ID</button>
     <button type="button" class="btn btn-info" onclick="hideAll();showData()">Get All Records</button>
     <button type="button" class="btn btn-warning" onclick="hideAll();clearData()">Clear/Reset Table</button>
@@ -32,16 +33,17 @@
       <button type="button" class="btn btn-info" onclick="hideAll();">Cancel</button>
     </div>
     <div class = "form-group" id="updateContainer" style='display:none;'>
-      <label for inputId>ID:</label>
-      <input type="input" id="updateId" width="50px" readonly>
+      <label for inputId id="updateIdLabel" style='display:none'>ID:</label>
+      <input type="input" id="updateId" width="50px" readOnly>
       <label for inputId>Brand:</label>
       <input type="input" id="updateBrand" width="100px">
       <label for inputId>Name:</label>
       <input type="input" id="updateName" width="100px">
       <label for inputId>Description:</label>
       <input type="input" id="updateDescription" width="175px">
-      <button type="button" class="btn btn-info" onclick="hideAll();updateDrink()">Submit</button>
+      <button type="button" class="btn btn-info" onclick="hideAll();modeInitiate()">Submit</button>
       <button type="button" class="btn btn-info" onclick="hideAll();">Cancel</button>
+    </div>
     </div>
 </center>
       <script type="text/javascript" src="./script.js"></script>
