@@ -13,8 +13,8 @@ function clearData(){
 
 function createTable(){
   refTable = document.createElement("table")
-  refTable.style.margin="0 auto";
-  refTable.border=1
+  // refTable.style.margin="0 auto";
+  // refTable.border=1
   let refRowHeader= document.createElement("tr");
   let refDataHeader1=document.createElement("th");
   let refDataHeader2=document.createElement("th");
@@ -132,12 +132,11 @@ let deleteDataBtn = async (i) => {
   return true;
 };
 
-function deleteData(i){
-  if (deleteDataBtn(i)){
-    for(let j=0;j<refTable.rows.length;j++){
-      if (refTable.rows[j].cells[0].innerHTML == i){
-        refTable.deleteRow(j);    
-      }
+function deleteData(id, index){
+  for(let j=0;j<refTable.rows.length;j++){
+    if (refTable.rows[j].cells[0].innerHTML == id){
+      deleteDataBtn(id);
+      refTable.deleteRow(j);    
     }
   }
 }
@@ -151,7 +150,7 @@ function showRecord(id, brand, name, description, index) {
   let refDelBtn = document.createElement("button");
   refDelBtn.className = "btn btn-danger";
   refDelBtn.innerHTML = "Delete";
-  refDelBtn.onclick = function() { deleteData(index) };
+  refDelBtn.onclick = function() { deleteData(id, index) };
   let refUpdateBtn = document.createElement("button");
   refUpdateBtn.className = "btn btn-warning";
   refUpdateBtn.innerHTML = "Update";
@@ -180,6 +179,7 @@ function toggleShowSearchId(){
 }
 
 function showUpdate(i){
+  hideAll();
   var element = document.getElementById("updateContainer");
   var uId = document.getElementById("updateId");
   var uIdLabel = document.getElementById("updateIdLabel");
