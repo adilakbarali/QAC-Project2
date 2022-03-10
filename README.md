@@ -1,4 +1,9 @@
 # QA - Hobby/Interests Project (Soft Drinks)
+By Adil Akbarali
+- [Git Repository](https://github.com/adilakbarali/QAC-Project2)
+- [Jira](https://adil-akbarali.atlassian.net/jira/software/projects/QP2/boards/8/roadmap)
+- [Presentation on Google Slides](https://docs.google.com/presentation/d/17kE0qA4YmA7KTYE4sjBB96C6c6k2YuAc5_gByfpSDUg/edit?usp=sharing)
+- [Presentation in PDF Format](documentation/presentation-project2.pdf)
 
 This project was undertaken to meet the specification underlined by QA as part of training. The project requires the creation of a Database using MySQL, which stores data about a particular interest or hobby, as well as the development of a Java application using the Spring Boot framework, thus producing an API of which a front-end (HTML + JavaScript) are then used to interact with this. Unlike the prior tackled project, there is no template to work from, and instead all files are made from scratch. The interest of choice here was Soft Drinks.
 
@@ -75,8 +80,3 @@ From here, the user can click the relevant buttons to start interacting. Below i
 From here, the user is presented with other options alongside their data, being Update and Delete, which allows the user to directly update or delete the selected data entry. They may also create an entry or search an entry by ID number by utilising the buttons at the top of the screen. Once the user creates or updates an entry, the table is cleared and they are presented with the specific entry that was either created or updated.
 
 JavaScript provides the functionality of hiding and showing certain elements on the page when buttons are clicked, as well as the Fetch API and formatting for the data, whether it be to output to the user or input to the database.
-
-
-
-
-
