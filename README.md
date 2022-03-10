@@ -20,7 +20,7 @@ As highlighted in the specification, we are required to use the following:
 
 ## Planning (Kanban in Jira & Git with GitHub)
 
-The Kanban board on Jira can be found here.[https://adil-akbarali.atlassian.net/jira/software/projects/QP2/boards/8/roadmap]
+The Kanban board on Jira can be found [here.](https://adil-akbarali.atlassian.net/jira/software/projects/QP2/boards/8/roadmap)
 Do note that the board is Private Access only - Those with permissions shared to them directly will be able to view this.
 
 The board consists of four epics, of which were used to split the tasks up into manageable sized chunks, of which all relate together for the epic. These tasks consisted of user stores, as well as child problems, and some of these were linked to each other
